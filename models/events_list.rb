@@ -4,14 +4,12 @@ require 'date'
 class Events_List
   attr_accessor :open_time, :close_time, :screen_num
 
-
-
   def initialize
 
     weekend = ["Friday", "Saturday", "Sunday"]
     today = Date.today
-    @day = today.strftime("%A")
-    if weekend.include?(@day)
+    day = today.strftime("%A")
+    if weekend.include?(day)
       @open_time = Time.new(today.year, today.month, today.day, 10, 30)
       @close_time = Time.new(today.year, today.month, today.day, 24)
     else
@@ -20,10 +18,10 @@ class Events_List
     end
 
     @screen_num = 21
-    @movies_collection = []
   end
 
   def create_events
+    @movies_collection = []
     json_data = File.read('movie_list.json')
     movies_data = JSON.parse(json_data)
     movies_data.each do |movie|

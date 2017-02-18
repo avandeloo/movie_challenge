@@ -1,9 +1,9 @@
 class RunnerView
   def ask_if_user_is_finished
     puts ""
-    puts "Select a movie to view it's times?"
-    puts "type 'all' to view a compiled list."
-    puts "type 'end' to exit program if you are done."
+    puts "Type 'all' to view a compiled list."
+    puts "Type 'select' to select a movie and view its showings."
+    puts "Type 'end' to exit program if you are done."
   end
 
   def three_d_question

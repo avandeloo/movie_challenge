@@ -15,7 +15,12 @@ class MovieLoader
       rating_time_stripped = rating_time.gsub(/\n\s+(\b|\z)/,'')
       rating_time_array = rating_time_stripped.split(" , ")
       time = rating_time_array.last
-      rating = rating_time_array.first
+
+      if rating_time_array.first.length > 6
+        rating = "NR"
+      else
+        rating = rating_time_array.first
+      end
 
       collection << {
                       title: title,

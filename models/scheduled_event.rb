@@ -1,5 +1,5 @@
 class Scheduled_Event
-  attr_accessor :start_time, :end_time, :title
+  attr_accessor :title, :rating, :run_time, :start_times, :end_times
 
   def initialize(hash)
     @title = hash["title"]

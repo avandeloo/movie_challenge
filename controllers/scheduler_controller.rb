@@ -16,7 +16,6 @@ class SchedulerController
   end
 
   def run_program #This is the flow of your program, call other classes and methods to complete
-    runner_view.reset_screen!
     load_view.ask_to_reload(today)
     reload_input = gets.chomp
 
@@ -29,13 +28,17 @@ class SchedulerController
       film = Movie.new
       film.gen_schedule
 
-
       runner_view.ask_if_user_is_finished
 
       user_choice = gets.chomp
       if user_choice == "all"
         all_movies = MovieView.new
         all_movies.show_all_movies
+      end
+
+      if user_choice == "select"
+        all_movies = MovieView.new
+        all_movies.show_movie
       end
 
       if user_choice == 'end'
